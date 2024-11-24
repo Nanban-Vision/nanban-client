@@ -11,3 +11,5 @@ def capture_surroundings():
     else:
         print("Failed to capture image")
     cap.release()
+
+    return image_filename

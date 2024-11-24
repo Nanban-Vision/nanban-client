@@ -15,7 +15,7 @@ def upload_picture(file_path):
     else:
         print(f"Error in object detection: {response.status_code}, {response.text}")
 
-def upload_voice(file_path):
+def upload_audio(file_path):
     with open(file_path, 'rb') as file:
         files = {'file': (file_path, file, 'audio/mpeg')}
         response = requests.post(url_voice_assistant, files=files)

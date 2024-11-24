@@ -1,6 +1,5 @@
 import speech_recognition as sr
 
-current_directory = os.path.dirname(os.path.abspath(__file__))
 recorded_audio_filename = os.path.join(current_directory, "recorded_audio.wav")  
 processed_audio_filename = os.path.join(current_directory, "processed_audio.mp3")
 
