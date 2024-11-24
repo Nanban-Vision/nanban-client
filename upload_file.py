@@ -10,10 +10,17 @@ def upload_picture(file_path):
 
     if response.status_code == 200:
         print("Object detection successful!")
-        with open('detected_object_audio.mp3', 'wb') as f:
+        
+        filename = "processed_audio.mp3" 
+
+        with open(filename, 'wb') as f:
             f.write(response.content)
+        
+        print(f"Saved as {filename}")
+        return filename
     else:
         print(f"Error in object detection: {response.status_code}, {response.text}")
+        return None
 
 def upload_audio(file_path):
     with open(file_path, 'rb') as file:
@@ -22,7 +29,15 @@ def upload_audio(file_path):
 
     if response.status_code == 200:
         print("Voice processing successful!")
-        with open('processed_voice.mp3', 'wb') as f:
+        
+        filename = "processed_audio.mp3" 
+
+        with open(filename, 'wb') as f:
             f.write(response.content)
+        
+        print(f"Saved as {filename}")
+        return filename
     else:
         print(f"Error in voice assistant: {response.status_code}, {response.text}")
+        return None
+
