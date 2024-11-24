@@ -26,7 +26,3 @@ def upload_voice(file_path):
             f.write(response.content)
     else:
         print(f"Error in voice assistant: {response.status_code}, {response.text}")
-
-upload_picture('my_picture.jpg')
-upload_voice('my_audio.mp3')
-
