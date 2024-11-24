@@ -1,7 +1,5 @@
-import os 
 import cv2
 
-current_directory = os.path.dirname(os.path.abspath(__file__))
 image_filename = os.path.join(current_directory, "captured_image.jpg")
 
 def capture_surroundings():
