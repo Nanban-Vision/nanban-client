@@ -1,7 +1,5 @@
 import speech_recognition as sr
-
-recorded_audio_filename = os.path.join(current_directory, "recorded_audio.wav")  
-processed_audio_filename = os.path.join(current_directory, "processed_audio.mp3")
+import os
 
 def take_command():
     r = sr.Recognizer()
@@ -20,6 +18,6 @@ def take_command():
         query = 'error'
     return query
 
-def play_audio():
-    os.system(f"mpg321 {processed_audio_filename}")  
+def play_audio(audio):
+    os.system(f"mpg321 {audio}")  
 
