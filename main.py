@@ -20,11 +20,11 @@ volume_control.run()
 while True:
     if button1.is_pressed:
         image = capture_surroundings()
-        processed_audio = upload_picture(image)
+        processed_audio = object_detection(image)
         play_audio(processed_audio)
     else:
-        audio = record_audio()
-        processed_audio = upload_audio(audio)
+        query = take_command()
+        processed_audio = voice_assistant(query)
         play_audio(processed_audio)
 
 volume_control.stop()
