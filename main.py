@@ -1,5 +1,3 @@
-def main():
-    
 from main_mode import *
 from voice_assistant import *
 from pulse import *
