@@ -5,7 +5,7 @@ current_directory = os.getcwd()
 image_filename = os.path.join(current_directory, "captured_image.jpg")
 
 def capture_surroundings():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     ret, frame = cap.read()
     if ret:
         cv2.imwrite(image_filename, frame)

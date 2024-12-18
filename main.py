@@ -24,11 +24,21 @@ while True:
         with open(image_path, 'rb') as image_file:
             files = {'file': (image_path, image_file, 'image/jpeg')}
             response = requests.post(f"{API_BASE_URL}/object-detection/", files=files)
-        play_audio(response.content)  
+
+        if response.status_code != 422:
+            audio_file_path = "audio.mp3"
+            with open(audio_file_path, "wb") as audio_file:
+                audio_file.write(response.content)
+
+            play_audio(response.content)  
     else:
         query = take_command()
         response = requests.post(f"{API_BASE_URL}/voice-assistant/", json={"query": query})
-        play_audio(response.content)  
+        audio_file_path = "audio.mp3"
+        with open(audio_file_path, "wb") as audio_file:
+            audio_file.write(response.content)
+
+        play_audio(audio_file_path)  
 
 volume_control.stop()
 volume_control.join()
