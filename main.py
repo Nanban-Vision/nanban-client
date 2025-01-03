@@ -9,7 +9,7 @@ import warnings
 import pulsectl
 import requests
 
-API_BASE_URL = "http://0.0.0.0:8000"  
+API_BASE_URL = "nanban.serveo.net"  
 
 warnings.simplefilter('ignore')
 button1 = Button(2)
