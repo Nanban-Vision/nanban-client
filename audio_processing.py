@@ -19,5 +19,9 @@ def take_command():
     return query
 
 def play_audio(audio):
-    os.system(f"mpg321 {audio}")  
+    os.system(f"mpg321 {audio}")
 
+def speak(text, lang='en', output_file='speech.mp3'):
+    tts = gTTS(text=text, lang=lang)
+    tts.save(output_file)
+    os.system("mpg321 " + output_file)

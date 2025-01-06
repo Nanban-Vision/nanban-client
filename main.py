@@ -30,7 +30,7 @@ while True:
             with open(audio_file_path, "wb") as audio_file:
                 audio_file.write(response.content)
 
-            play_audio(response.content)  
+            play_audio(audio_file_path)  
     else:
         query = take_command()
         response = requests.post(f"{API_BASE_URL}/voice-assistant/", json={"query": query})
