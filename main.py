@@ -11,11 +11,6 @@ import requests
 
 API_BASE_URL = "https://nanban.loca.lt"  
 
-headers = {
-    "bypass-tunnel-reminder": "anyvalue",  
-    "User-Agent": "CustomUserAgent/1.0",   
-}
-
 warnings.simplefilter('ignore')
 button1 = Button(2)
 button2 = Button(3)
@@ -31,7 +26,6 @@ while True:
             response = requests.post(
                 f"{API_BASE_URL}/object-detection/",
                 files=files,
-                headers=headers
             )
             response = requests.post(f"{API_BASE_URL}/object-detection/", files=files)
 
@@ -46,7 +40,6 @@ while True:
         response = requests.post(
             f"{API_BASE_URL}/voice-assistant/",
             json={"query": query},
-            headers=headers
         )
         audio_file_path = "audio.mp3"
         with open(audio_file_path, "wb") as audio_file:
