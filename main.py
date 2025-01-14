@@ -13,10 +13,10 @@ API_BASE_URL = "https://nanban.serveo.net"
 
 warnings.simplefilter('ignore')
 button1 = Button(2)
-button2 = Button(3)
+button2 = Button(4)
 
 volume_control = VolumeControl(button2)
-volume_control.run()
+volume_control.start()
 
 while True:
     if button1.is_pressed:
