@@ -9,7 +9,7 @@ import warnings
 import pulsectl
 import requests
 
-API_BASE_URL = "https://nanban.loca.lt"  
+API_BASE_URL = "https://nanban.serveo.net"  
 
 warnings.simplefilter('ignore')
 button1 = Button(2)
@@ -23,10 +23,6 @@ while True:
         image_path = capture_surroundings()
         with open(image_path, 'rb') as image_file:
             files = {'file': (image_path, image_file, 'image/jpeg')}
-            response = requests.post(
-                f"{API_BASE_URL}/object-detection/",
-                files=files,
-            )
             response = requests.post(f"{API_BASE_URL}/object-detection/", files=files)
 
         if response.status_code != 422:
@@ -37,10 +33,7 @@ while True:
             play_audio(audio_file_path)  
     else:
         query = take_command()
-        response = requests.post(
-            f"{API_BASE_URL}/voice-assistant/",
-            json={"query": query},
-        )
+        response = requests.post(f"{API_BASE_URL}/voice-assistant/", json={"query": query})
         audio_file_path = "audio.mp3"
         with open(audio_file_path, "wb") as audio_file:
             audio_file.write(response.content)
@@ -49,4 +42,3 @@ while True:
 
 volume_control.stop()
 volume_control.join()
-
