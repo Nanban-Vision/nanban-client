@@ -9,7 +9,7 @@ import warnings
 import pulsectl
 import requests
 
-API_BASE_URL = "https://nanban.serveo.net"  
+API_BASE_URL = "https://admittedly-wired-halibut.ngrok-free.app"  
 
 warnings.simplefilter('ignore')
 button1 = Button(2)
