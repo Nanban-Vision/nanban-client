@@ -33,7 +33,11 @@ while True:
             play_audio(audio_file_path)  
     else:
         query = take_command()
-        response = requests.post(f"{API_BASE_URL}/voice-assistant/", json={"query": query})
+
+        payload = {"query": query}  
+        headers = {"Content-Type": "application/json"}  
+        response = requests.post(f"{API_BASE_URL}/voice-assistant/", json=payload, headers=headers)  
+
         audio_file_path = "audio.mp3"
         with open(audio_file_path, "wb") as audio_file:
             audio_file.write(response.content)
